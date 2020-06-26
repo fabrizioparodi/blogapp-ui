@@ -1,28 +1,15 @@
-# Login
+# blogapp-ui
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+The UI is very basic, based on an existing template i took from the Web just to don't spend time on creating it. 
+I added a little component for the Post to interact with the API
 
-## Development server
+## Deployed on Firebase
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- https://blog-app-ee678.web.app/
 
-## Code scaffolding
+## Security
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The authentication is based on Firebase Auth to be able to interact with the blog api with the provided token
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-"# blogapp-ui" 
+## Notes
+To test the application you can register with a dummy email/pwd and start creating post and switching between different users to see how works the Post's permissions.
