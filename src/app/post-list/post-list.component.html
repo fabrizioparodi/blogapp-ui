@@ -1,0 +1,101 @@
+<div class="row">
+  <div class="column">
+    <h2>Create a post:</h2><br>
+    <div class="row">
+      <div>
+        <p style="color: red; text-align:center">{{ errMessage }}</p>
+        <p style="color: green; text-align:center">{{ message }}</p>
+        <form [formGroup]="postForm" (ngSubmit)="createPost()">
+          <div style="width: 300px;">
+            <label for="title">Title</label>
+            <input id="title" type="text" class="form-control" formControlName="title"/>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+              id="description"
+              class="form-control"
+              formControlName="description"
+            ></textarea>
+          </div>
+
+          <div>
+            <div>Privacy:</div>
+            <label for="public" style="margin-right: 10px;">PUBLIC</label>
+            <input
+              id="public"
+              type="radio"
+              name="privacy"
+              formControlName="privacy"
+              value="PUBLIC"
+            />
+            <label for="private" style="margin: 0 10px;">PRIVATE</label>
+            <input
+              id="private"
+              type="radio"
+              name="privacy"
+              formControlName="privacy"
+              value="PRIVATE"
+            />
+          </div>
+          <button class="btn btn-primary btn-lg btn-block">
+            Create
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <h2 style="margin-top: 10px;">List of posts:</h2><br>
+    <div class="row">
+      <div class="form-row">
+        <div class="form-group col-md-9">
+          <label for="matchText">Filter by text:</label>
+          <input id="matchText" type="text" class="form-control" [(ngModel)]="matchText" (keyup.enter)="searchText()">
+        </div>
+        <div class="form-group col-md-3">
+          <button style="margin-top: 10px;" type="button" class="btn btn-primary" (click)="searchText()">Filter</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 10px;">
+      <div *ngFor="let post of posts">
+        <div class="row" style="max-width: 550px;">
+          <div class="span8">
+            <div class="row">
+              <div class="span8">
+                <h4><strong><a href="javascript:void(0)">{{ post.title }}</a></strong></h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="span6">
+                <p style="word-break: break-word">
+                  {{ post.description }}
+                </p>
+                <p><a class="btn" href="javascript:void(0)">Read more</a></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="span8">
+                <p></p>
+                <p>
+                  <span [ngClass]="{'red': post.privacy === 'PUBLIC'}"
+                        style="font-weight: bold">{{ post.privacy }}</span>
+                  | <i class="icon-user"></i>&nbsp; by <a href="javascript:void(0)">{{ post.createdBy }}</a>
+                  | <i class="icon-calendar"></i>&nbsp; {{ post.createdAt | date }}
+                  | <i class="icon-comment"></i>&nbsp; <a href="javascript:void(0)">0 Comments</a>
+                  | <i class="icon-share"></i>&nbsp; <a href="javascript:void(0)">0 Shares</a>
+                  | <i class="icon-trash"></i>&nbsp; <a href="javascript:void(0)" (click)="deletePost(post._id)">Delete</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>
