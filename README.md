@@ -12,7 +12,11 @@ I added a little component for the Post to interact with the API
 The authentication is based on Firebase Auth to be able to interact with the blog api with the provided token
 
 ## Notes
-To test the application you can register with a dummy email/pwd and start creating post and switching between different users to see how works the Post's permissions.
+To test the application you can register with a dummy email/pwd and start creating post and switching between different users to see how works the Post's permissions, or use the existing ones.
+
+### Test users:
+* test1@test.com / test123
+* test2@test.com / test123
 
 ### Related repository (API):
 https://github.com/fabrizioparodi/blogapp-api
