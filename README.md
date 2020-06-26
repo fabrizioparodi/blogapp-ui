@@ -13,3 +13,6 @@ The authentication is based on Firebase Auth to be able to interact with the blo
 
 ## Notes
 To test the application you can register with a dummy email/pwd and start creating post and switching between different users to see how works the Post's permissions.
+
+### Related repository (API):
+https://github.com/fabrizioparodi/blogapp-api
